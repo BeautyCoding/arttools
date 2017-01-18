@@ -68,7 +68,7 @@ class DummyClassName extends Controller
      */
     public function show(ShowRequest $request)
     {
-        return $this->model->find($request->get($this->model->getKeyName()));
+        return $this->model->find($request->{$this->model->getKeyName()});
     }
 
     /**
@@ -90,7 +90,7 @@ class DummyClassName extends Controller
      */
     public function update(UpdateRequest $request)
     {
-        return $this->model->find($request->get($this->model->getKeyName()))->update($request->all());
+        return $this->model->find($request->{$this->model->getKeyName()})->update($request->all());
     }
 
     /**
@@ -101,6 +101,6 @@ class DummyClassName extends Controller
      */
     public function destroy(DestroyRequest $request)
     {
-        return $this->model->find($request->get($this->model->getKeyName()))->delete();
+        return $this->model->find($request->{$this->model->getKeyName()})->delete();
     }
 }
