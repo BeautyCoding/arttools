@@ -40,7 +40,7 @@ class MakeBeautyControllerCommand extends BeautyCommand
      */
     protected function getStub(): string
     {
-        return resource_path('/vendor/arttools/stubs/controllers/controller.full.stub');
+        return resource_path('vendor/arttools/stubs/controllers/controller.full.stub');
     }
 
     /**

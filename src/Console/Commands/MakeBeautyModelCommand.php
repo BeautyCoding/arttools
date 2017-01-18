@@ -39,6 +39,6 @@ class MakeBeautyModelCommand extends BeautyCommand
      */
     protected function getStub(): string
     {
-        return resource_path('/vendor/arttools/stubs/models/model.full.stub');
+        return resource_path('vendor/arttools/stubs/models/model.full.stub');
     }
 }

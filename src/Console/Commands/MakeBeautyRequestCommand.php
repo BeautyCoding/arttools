@@ -43,6 +43,6 @@ class MakeBeautyRequestCommand extends BeautyCommand
             return resource_path('vendor/arttools/stubs/requests/request.base.stub');
         }
 
-        return resource_path('/vendor/arttools/stubs/requests/request.full.stub');
+        return resource_path('vendor/arttools/stubs/requests/request.full.stub');
     }
 }

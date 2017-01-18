@@ -23,7 +23,7 @@ class ArtToolsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../../resource/stubs' => base_path('resources/vendor/stubs'),
+            __DIR__ . '/../../resource/stubs' => base_path('resources/vendor/arttools/stubs'),
         ]);
     }
 
