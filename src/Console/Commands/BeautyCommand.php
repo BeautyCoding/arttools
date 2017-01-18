@@ -150,6 +150,17 @@ abstract class BeautyCommand extends Command
     }
 
     /**
+     * [replaceDummyModelName description]
+     * @param  [type] $name [description]
+     * @param  [type] $stub [description]
+     * @return [type]       [description]
+     */
+    public function replaceDummyModelName($name, $stub)
+    {
+        return str_replace('DummyModelName', $name, $stub);
+    }
+
+    /**
      * [replaceNamespace description]
      * @param  [type] $name [description]
      * @param  [type] $stub [description]
@@ -206,7 +217,7 @@ abstract class BeautyCommand extends Command
     {
         $stub = $this->files->get($this->getStub());
 
-        $stub = $this->replaceClassNameSpace($this->name, $stub);
+        $stub = $this->replaceDummyModelName(str_replace("Controller", "", $this->buildClass($this->name)), $stub);
         $stub = $this->replaceClassName($this->buildClass($this->name), $stub);
         $stub = $this->replaceClass($this->name, $stub);
         $stub = $this->replaceRootNamespace($this->getRootNamespace(), $stub);

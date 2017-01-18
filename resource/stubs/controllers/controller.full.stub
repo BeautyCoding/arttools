@@ -3,17 +3,30 @@
 namespace DummyNamespace\DummyClassNamespace;
 
 use DummyRootNamespace\Http\Controllers\Controller;
-use DummyRootNamespace\Http\Requests\DummyClass\IndexRequest;
 use DummyRootNamespace\Http\Requests\DummyClass\CreateRequest;
-use DummyRootNamespace\Http\Requests\DummyClass\StoreRequest;
-use DummyRootNamespace\Http\Requests\DummyClass\ShowRequest;
-use DummyRootNamespace\Http\Requests\DummyClass\EditRequest;
-use DummyRootNamespace\Http\Requests\DummyClass\UpdateRequest;
 use DummyRootNamespace\Http\Requests\DummyClass\DestroyRequest;
+use DummyRootNamespace\Http\Requests\DummyClass\EditRequest;
+use DummyRootNamespace\Http\Requests\DummyClass\IndexRequest;
+use DummyRootNamespace\Http\Requests\DummyClass\ShowRequest;
+use DummyRootNamespace\Http\Requests\DummyClass\StoreRequest;
+use DummyRootNamespace\Http\Requests\DummyClass\UpdateRequest;
+use DummyRootNamespace\Models\DummyModelName;
 use Illuminate\Http\Request;
 
 class DummyClassName extends Controller
 {
+    /**
+     * Controller model
+     * @var \DummyRootNamespace\Models\DummyModelName
+     */
+    private $model;
+
+    public function __construct(DummyModelName $model)
+    {
+        $this->model = $model;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +35,7 @@ class DummyClassName extends Controller
      */
     public function index(IndexRequest $request)
     {
-        //
+        return $this->model->all();
     }
 
     /**
@@ -44,7 +57,7 @@ class DummyClassName extends Controller
      */
     public function store(StoreRequest $request)
     {
-        //
+        return $this->model->create($request->all());
     }
 
     /**
@@ -55,7 +68,7 @@ class DummyClassName extends Controller
      */
     public function show(ShowRequest $request)
     {
-        //
+        return $this->model->find($request->get($this->model->getKeyName()));
     }
 
     /**
@@ -77,7 +90,7 @@ class DummyClassName extends Controller
      */
     public function update(UpdateRequest $request)
     {
-        //
+        return $this->model->find($request->get($this->model->getKeyName()))->update($request->all());
     }
 
     /**
@@ -88,6 +101,6 @@ class DummyClassName extends Controller
      */
     public function destroy(DestroyRequest $request)
     {
-        //
+        return $this->model->find($request->get($this->model->getKeyName()))->delete();
     }
 }
