@@ -1,6 +1,6 @@
 <?php
 
-namespace DummyNamespace;
+namespace DummyNamespace\DummyClassNamespace;
 
 use DummyRootNamespace\Http\Controllers\Controller;
 use DummyRootNamespace\Http\Requests\DummyClass\IndexRequest;

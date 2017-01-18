@@ -1,6 +1,6 @@
 <?php
 
-namespace DummyRootNamespace\Http\Requests\DummyClass;
+namespace DummyRootNamespace\Http\Requests\DummyClassNamespace;
 
 use DummyRootNamespace\Http\Requests\Request;
 

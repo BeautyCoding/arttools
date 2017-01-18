@@ -101,6 +101,22 @@ abstract class BeautyCommand extends Command
     }
 
     /**
+     * [replaceClassNameSpace description]
+     * @param  [type] $name [description]
+     * @param  [type] $stub [description]
+     * @return [type]       [description]
+     */
+    public function replaceClassNameSpace($name, $stub)
+    {
+        $a = $name;
+        $name = explode('\\', $name);
+        array_pop($name);
+        $name = implode('\\', (array) $name);
+
+        return str_replace('DummyClassNamespace', $name, $stub);
+    }
+
+    /**
      * [replaceClassName description]
      * @param  [type] $name [description]
      * @param  [type] $stub [description]
@@ -171,8 +187,7 @@ abstract class BeautyCommand extends Command
 
     /**
      * Save file
-     * @param  [type] $content [description]
-     * @return [type]          [description]
+     * @param  string $content
      */
     public function saveFile($content)
     {
@@ -191,6 +206,7 @@ abstract class BeautyCommand extends Command
     {
         $stub = $this->files->get($this->getStub());
 
+        $stub = $this->replaceClassNameSpace($this->name, $stub);
         $stub = $this->replaceClassName($this->buildClass($this->name), $stub);
         $stub = $this->replaceClass($this->name, $stub);
         $stub = $this->replaceRootNamespace($this->getRootNamespace(), $stub);
