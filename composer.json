@@ -1,0 +1,19 @@
+{
+    "name": "antyrace/arttools",
+    "description": "Tools",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AntyRace",
+            "email": "antyrace@antyrace.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BeautyCoding\\ArtTools\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
